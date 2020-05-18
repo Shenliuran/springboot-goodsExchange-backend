@@ -31,4 +31,7 @@ public class Transaction {
 
     @Column(name = "receiver_id")
     private Integer receiverId;
+
+    @Column(name = "status")
+    private Integer status = 0;
 }

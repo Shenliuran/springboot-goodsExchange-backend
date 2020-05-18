@@ -17,6 +17,7 @@ public class GoodsController {
     GoodsRepository goodsRepository;
 
     @RequestMapping("/findAllByIsSelected")
+    @CrossOrigin("http://localhost:8080")
     public List<Goods> findAllByIsSelected(@RequestParam(value = "page") Integer page, @RequestParam(value = "size") Integer size) {
         PageRequest request = PageRequest.of(page, size);
         return goodsRepository.findAllByIsSelected(0, request);
@@ -31,6 +32,7 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/findGoodsByOwnerId", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     public List<Goods> findGoodsByOwnerId(@RequestParam(value = "ownerId") Integer ownerId) {
         return goodsRepository.findAllByOwnerId(ownerId);
     }
@@ -42,6 +44,7 @@ public class GoodsController {
     }
 
     @RequestMapping(value = "/getGoodsId", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     public Integer obtainGoodsId(
             @RequestParam(value = "goodsName") String goodsName,
             @RequestParam(value = "category") String category,
@@ -57,13 +60,21 @@ public class GoodsController {
                 goods.getCategory(),
                 goods.getDescription(),
                 goods.getPicture(),
+                goods.getContact(),
                 goods.getGoodsId()
         ) == null ? "0" : "1";
     }
 
     @RequestMapping(value = "/allGoods", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     public List<Goods> findAllGoods() {
         return goodsRepository.findAll();
+    }
+
+    @RequestMapping(value = "/updateIsSelected", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
+    public void updateIsSelected(@RequestParam(value = "goodsId") Integer goodsId) {
+        goodsRepository.updateIsSelected(1, goodsId);
     }
 }
 

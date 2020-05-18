@@ -51,11 +51,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/authority", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     String obtainAuthority(@RequestParam(value = "username") String username) {
         return userRepository.findUserByUsername(username).getAuthority().toString();
     }
 
     @RequestMapping(value = "/getUserIdByUsernameAndPassword", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     String obtainUserId(@RequestParam(value = "username") String username, @RequestParam(value = "password") String password) {
         System.out.println(username + " " + password);
         return userRepository.findUserByUsernameAndPassword(username, password).getUserId().toString();
@@ -89,6 +91,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/allUsers", method = RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
     List<User> allUser() {
         return userRepository.findAll();
     }

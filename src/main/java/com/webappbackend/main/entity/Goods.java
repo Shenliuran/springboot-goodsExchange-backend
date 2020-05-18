@@ -1,12 +1,14 @@
 package com.webappbackend.main.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "goods")
 @Data
+@Proxy(lazy = false)
 public class Goods {
 
     @Id
@@ -36,4 +38,7 @@ public class Goods {
 
     @Column(name = "description", columnDefinition = "longtext")
     private String description;
+
+    @Column(name = "contact", columnDefinition = "varchar(50)")
+    private String contact;
 }
