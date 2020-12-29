@@ -3,7 +3,7 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/goods_exchange?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: jiangteng
+    username: shenliuran
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:

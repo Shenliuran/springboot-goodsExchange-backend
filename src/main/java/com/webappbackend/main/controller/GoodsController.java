@@ -34,6 +34,7 @@ public class GoodsController {
     @RequestMapping(value = "/findGoodsByOwnerId", method = RequestMethod.GET)
     @CrossOrigin("http://localhost:8080")
     public List<Goods> findGoodsByOwnerId(@RequestParam(value = "ownerId") Integer ownerId) {
+        System.out.println("ownerId= " + ownerId);
         return goodsRepository.findAllByOwnerId(ownerId);
     }
 
